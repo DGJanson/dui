@@ -1,0 +1,22 @@
+{
+    "collections": [
+        {
+            "name": "core",
+            "path": "/home/david/opt/Odin/core/"
+        },
+        {
+            "name": "vendor",
+            "path": "/home/david/opt/Odin/vendor/"
+        },
+        {
+            "name": "base",
+            "path": "/home/david/opt/Odin/base"
+        }
+    ],
+    "enable_document_symbols": true,
+    "enable_semantic_tokens": true,
+    "enable_snippets": true,
+    "enable_references": true,
+    "verbose": false,
+    "enable_auto_import": true
+}
