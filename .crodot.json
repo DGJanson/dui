@@ -1,18 +1,22 @@
 {
-  "name": "Davids UI",
+  "name": "DUI",
   "directory": "/home/david/workspace/odin/dui",
   "prompt_dirs": [
     {
-      "description": "source files of the DUI library",
+      "description": "source dir with code files",
       "path": "/home/david/workspace/odin/dui/src"
     }
   ],
   "project_file": "/home/david/workspace/odin/dui/.crodot.json",
   "desc_file": "/home/david/workspace/odin/dui/crodot.md",
   "file_short_list": [
-    "/home/david/workspace/odin/dui/src/main.odin"
+    "/home/david/workspace/odin/dui/src/layout.odin",
+    "/home/david/workspace/odin/dui/src/main.odin",
+    "/home/david/workspace/odin/dui/src/textarea.odin"
   ],
   "file_active_list": [
-    "/home/david/workspace/odin/dui/src/main.odin"
+    "/home/david/workspace/odin/dui/src/main.odin",
+    "/home/david/workspace/odin/dui/src/layout.odin",
+    "/home/david/workspace/odin/dui/src/textarea.odin"
   ]
 }

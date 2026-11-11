@@ -3,7 +3,7 @@ clean:
 	cp ./fonts/CaskaydiaMonoNerdFont-Regular.ttf ./target/caskaydia.ttf
 
 test:
-	odin test ./tests -out=./target/tests -show-timings -define:ODIN_TEST_ALWAYS_REPORT_MEMORY=true
+	odin test ./src -out=./target/tests -define:ODIN_TEST_ALWAYS_REPORT_MEMORY=true -define:ODIN_TEST_FAIL_ON_BAD_MEMORY=true
 
 build-exe:
 	odin build ./src -out=./target/dui-exe --build-mode:exe -debug

@@ -18,10 +18,23 @@ when ODIN_BUILD_MODE == .Executable {
         cf := rl.LoadFontEx("target/caskaydia.ttf", 30, nil, 0)
         defer rl.UnloadFont(cf)
 
+        // Create style
+        style := create_style(cf, 16, 20, 2, scheme_everforest())
+
         current_frame := time.now()
 
         nr_frames := 0
         nr_polls := 0
+
+        ta := textarea_generate(
+            rl.Rectangle{10, 10, 100, 100},
+            5,
+            5,
+            "Tekst\nTest\r\nlange lijn met hopelijk breaks\nnog een test",
+            &style,
+            allocator = context.allocator,
+        )
+        defer (textarea_destroy(&ta))
 
         for !rl.WindowShouldClose() {
             // Time since loop
@@ -38,12 +51,15 @@ when ODIN_BUILD_MODE == .Executable {
             if should_draw {
                 nr_frames += 1
                 rl.BeginDrawing()
-                rl.ClearBackground(rl.DARKGRAY)
+                rl.ClearBackground(style.colors.bg)
 
                 text_vec := rl.Vector2{440, 360}
                 text := fmt.aprintf("polls: %d \t frames: %d", nr_polls, nr_frames, allocator = context.temp_allocator)
                 text_c := strings.clone_to_cstring(text, context.temp_allocator)
-                rl.DrawTextEx(cf, text_c, text_vec, 15, 0, rl.WHITE)
+                rl.DrawTextEx(cf, text_c, text_vec, 16, 0, style.colors.fg)
+
+                rl.DrawRectangleLines(10, 10, 100, 100, style.colors.purple)
+                textarea_draw(&ta)
 
                 rl.EndDrawing()
                 free_all(context.temp_allocator)
@@ -53,4 +69,3 @@ when ODIN_BUILD_MODE == .Executable {
         }
     }
 }
-
